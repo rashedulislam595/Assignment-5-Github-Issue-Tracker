@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Issue Tracker</title>
+
+    <!-- DaisyUI and Tailwind Css -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- google font- Geist -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+            /* background-color: #f3f4f6; */
+        }
+
+        ::placeholder {
+            color: #64748B;
+        }
+    </style>
+
+
+</head>
+
+<body class="bg-gray-100 py-12 ">
+    <main class="w-lg mx-auto my-[60px] bg-white rounded-lg p-8 mb-32">
+        <!-- login heading -->
+        <div class="text-center mb-6 bg-white!">
+            <img class="mx-auto mb-6" src="./assets/github-logo.png" alt="">
+            <h2 class="text-2xl text-[#1F2937] font-semibold mb-1">GitHub Issues Tracker</h2>
+            <p class="text-[#64748B]">Sign in to manage your issues</p>
+        </div>
+        <fieldset class="fieldset rounded-box">
+            <label class="label text-[#1F2937] text-lg font-medium">Username</label>
+            <input type="text" class=" text-[16px] p-4 rounded-lg border border-[#E4E4E7]"
+                placeholder="Enter Username" />
+            <p class="text-[14px] text-[#4A00FF]">Default: admin</p>
+
+            <label class="label text-[#1F2937] text-lg font-medium mt-4">Password</label>
+            <input type="password" class=" text-[16px] p-4 rounded-lg border border-[#E4E4E7]"
+                placeholder="Enter Password" />
+            <p class="text-[14px] text-[#4A00FF]">Default: admin123</p>
+
+            <button class="btn btn-primary text-[16px] font-semibold mt-6">Sign In</button>
+        </fieldset>
+        <div class="my-6 relative">
+            <hr class="text-[#E4E4E7]">
+            <div class="bg-white w-12 px-3 absolute left-[200px] -top-3.5 ">
+                <h4 class="">OR</h4>
+            </div>
+        </div>
+        <!-- Demo section -->
+        <div class="text-center">
+            <p class="text-[#64748B] text-[14px]">Demo Credentials:</p>
+            <div class="bg-base-300 p-6 rounded-lg">
+                <h3 class="text-[#1F2937]"><span class="font-semibold">Username:</span> admin
+                </h3>
+                <h3 class="text-[#1F2937]"><span class="font-semibold">Password:</span> admin123
+                </h3>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
