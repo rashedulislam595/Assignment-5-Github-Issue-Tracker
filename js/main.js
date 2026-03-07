@@ -1,6 +1,8 @@
 
 const issuesContainer = document.getElementById("issue-container");
 const issueCont = document.getElementById("issue-count");
+let openIssues = [];
+let closedIssues = [];
 
 const loadIssue = async() =>{
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
@@ -30,32 +32,20 @@ const buttonActive = (text) =>{
         allBtn.classList.remove("btn-primary");
         closedBtn.classList.remove("btn-primary");
         openBtn.classList.add("btn-primary");
+        displayIssue(openIssues);
     }else{
         issuesContainer.innerHTML = "";
         closedBtn.classList.remove("text-[#64748B]" ,"bg-[#FFFFFF]");
         allBtn.classList.remove("btn-primary");
         openBtn.classList.remove("btn-primary");
         closedBtn.classList.add("btn-primary");
+        issueCont.innerText = 0;
+        displayIssue(closedIssues);
     }
 }
 
 const displayIssue = (issues) =>{
     issuesContainer.innerHTML = "";
-
-//     {
-//     "id": 40,
-//     "title": "Implement activity logging",
-//     "description": "Add comprehensive activity logs for audit trail and debugging purposes.",
-//     "status": "open",
-//     "labels": [
-//         "enhancement"
-//     ],
-//     "priority": "medium",
-//     "author": "logger_leo",
-//     "assignee": "alex_perf",
-//     "createdAt": "2024-01-22T14:00:00Z",
-//     "updatedAt": "2024-01-22T14:00:00Z"
-// }
     
     issues.forEach(issue =>{
         let year = issue.createdAt.slice(0,4);
@@ -89,13 +79,29 @@ const displayIssue = (issues) =>{
         `
         issuesContainer.appendChild(issueCard)
         if(issue.status == "open"){
-            issueCard.classList.add("border-t-4","border-[#00A96E]")
+            issueCard.classList.add("border-t-4","border-[#00A96E]");
+            openFilterIssues(issue,issue.id)
         }else{
-            issueCard.classList.add("border-t-4","border-[#A855F7]")
+            issueCard.classList.add("border-t-4","border-[#A855F7]");
+            closedFilterIssues(issue,issue.id)
         }
     
     })
     issueCont.innerText = issuesContainer.children.length;
+}
+const openFilterIssues = (issues,id) =>{
+    const existingItem = openIssues.find(item => item.id == id);
+    if(!existingItem){
+
+        openIssues.push(issues)
+    }
+}
+const closedFilterIssues = (issues,id) =>{
+    const existingItem = closedIssues.find(item => item.id == id);
+    if(!existingItem){
+
+        closedIssues.push(issues)
+    }
 }
 
 loadIssue();
