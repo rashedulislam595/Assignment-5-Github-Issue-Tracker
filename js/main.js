@@ -1,10 +1,42 @@
 
 const issuesContainer = document.getElementById("issue-container");
+const issueCont = document.getElementById("issue-count");
 
 const loadIssue = async() =>{
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const data = await res.json();
     displayIssue(data.data);
+}
+
+// button active color
+const buttonActive = (text) =>{
+    
+
+    const allBtn = document.getElementById("all-btn");
+    const openBtn = document.getElementById("open-btn");
+    const closedBtn = document.getElementById("closed-btn");
+    
+    if(text == "all"){
+        allBtn.classList.add("btn-primary");
+        allBtn.classList.remove("text-[#64748B]","bg-[#FFFFFF]")
+        openBtn.classList.remove("btn-primary");
+        closedBtn.classList.remove("btn-primary");
+        loadIssue();
+        
+    }
+    else if(text == "open"){
+        issuesContainer.innerHTML = "";
+        openBtn.classList.remove("text-[#64748B]" ,"bg-[#FFFFFF]");
+        allBtn.classList.remove("btn-primary");
+        closedBtn.classList.remove("btn-primary");
+        openBtn.classList.add("btn-primary");
+    }else{
+        issuesContainer.innerHTML = "";
+        closedBtn.classList.remove("text-[#64748B]" ,"bg-[#FFFFFF]");
+        allBtn.classList.remove("btn-primary");
+        openBtn.classList.remove("btn-primary");
+        closedBtn.classList.add("btn-primary");
+    }
 }
 
 const displayIssue = (issues) =>{
@@ -30,7 +62,6 @@ const displayIssue = (issues) =>{
         let date = issue.createdAt.slice(8,10);
         let month = issue.createdAt.slice(5,7);
        
-        console.log(issue.status)
         const issueCard = document.createElement("div");
         issueCard.className = "p-4 rounded-lg shadow-xl";
 
@@ -64,6 +95,7 @@ const displayIssue = (issues) =>{
         }
     
     })
+    issueCont.innerText = issuesContainer.children.length;
 }
 
 loadIssue();
