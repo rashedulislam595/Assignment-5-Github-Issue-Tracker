@@ -63,9 +63,12 @@
         <section>
             <!-- tab container -->
             <div class="flex gap-2 bg-[#FFFFFF] p-6 rounded-lg mt-[60px] mb-4 shadow-sm">
-                <button onclick="buttonActive('all')"  id="all-btn" class="btn btn-primary font-semibold md:text-[16px] sm:px-12 px-8">All</button>
-                <button onclick="buttonActive('open')"  id="open-btn" class="btn text-[#64748B] bg-[#FFFFFF] font-medium md:text-[16px] px-5 sm:px-9">Open</button>
-                <button onclick="buttonActive('closed')" id="closed-btn" class="btn text-[#64748B] bg-[#FFFFFF] font-medium md:text-[16px] px-5 sm:px-8">Closed</button>
+                <button onclick="buttonActive('all')" id="all-btn"
+                    class="btn btn-primary font-semibold md:text-[16px] sm:px-12 px-8">All</button>
+                <button onclick="buttonActive('open')" id="open-btn"
+                    class="btn text-[#64748B] bg-[#FFFFFF] font-medium md:text-[16px] px-5 sm:px-9">Open</button>
+                <button onclick="buttonActive('closed')" id="closed-btn"
+                    class="btn text-[#64748B] bg-[#FFFFFF] font-medium md:text-[16px] px-5 sm:px-8">Closed</button>
             </div>
             <!-- issue count & open,closed marker -->
             <div class="flex justify-between items-center bg-[#FFFFFF] p-6 rounded-lg shadow-sm">
@@ -98,7 +101,13 @@
             <!-- issue container -->
             <div id="issue-container"
                 class="p-6 shadow-xl rounded-lg grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 ">
-                
+
+            </div>
+
+            <!-- loading -->
+            <div id="loading-container" class="text-center hidden mt-44">
+                <span class="loading loading-spinner text-neutral"></span>
+                <span class="loading loading-spinner text-info"></span>
             </div>
         </section>
     </main>

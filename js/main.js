@@ -1,13 +1,24 @@
 
 const issuesContainer = document.getElementById("issue-container");
 const issueCont = document.getElementById("issue-count");
+const loadingContainer = document.getElementById("loading-container");
 let openIssues = [];
 let closedIssues = [];
 
 const loadIssue = async() =>{
+    loading(true);
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const data = await res.json();
     displayIssue(data.data);
+}
+
+// loading 
+const loading =(status) =>{
+    if(status == true){
+        loadingContainer.classList.remove("hidden")
+    }else{
+        loadingContainer.classList.add("hidden")
+    }
 }
 
 // button active color
@@ -88,6 +99,7 @@ const displayIssue = (issues) =>{
     
     })
     issueCont.innerText = issuesContainer.children.length;
+    loading(false)
 }
 const openFilterIssues = (issues,id) =>{
     const existingItem = openIssues.find(item => item.id == id);
