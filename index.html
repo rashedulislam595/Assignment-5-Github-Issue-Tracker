@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Issue Tracker</title>
+    <title>GitHub Issue Tracker | Login Page</title>
 
     <!-- DaisyUI and Tailwind Css -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
@@ -31,7 +31,7 @@
 </head>
 
 <body class="bg-gray-100 py-12 ">
-    <main class="w-lg mx-auto my-[60px] bg-white rounded-lg p-8 mb-32">
+    <main class="w-lg mx-auto my-[60px] bg-white rounded-lg p-8 mb-32 shadow">
         <!-- login heading -->
         <div class="text-center mb-6 bg-white!">
             <img class="mx-auto mb-6" src="./assets/github-logo.png" alt="">
@@ -40,16 +40,17 @@
         </div>
         <fieldset class="fieldset rounded-box">
             <label class="label text-[#1F2937] text-lg font-medium">Username</label>
-            <input type="text" class=" text-[16px] p-4 rounded-lg border border-[#E4E4E7]"
+            <input id="username-input" type="text" class=" text-[16px] p-4 rounded-lg border border-[#E4E4E7]"
                 placeholder="Enter Username" />
             <p class="text-[14px] text-[#4A00FF]">Default: admin</p>
 
             <label class="label text-[#1F2937] text-lg font-medium mt-4">Password</label>
-            <input type="password" class=" text-[16px] p-4 rounded-lg border border-[#E4E4E7]"
+            <input id="password-input" type="password" class=" text-[16px] p-4 rounded-lg border border-[#E4E4E7]"
                 placeholder="Enter Password" />
             <p class="text-[14px] text-[#4A00FF]">Default: admin123</p>
+            
 
-            <button class="btn btn-primary text-[16px] font-semibold mt-6">Sign In</button>
+            <button id="sign-in-btn" class="btn btn-primary text-[16px] font-semibold mt-6">Sign In</button>
         </fieldset>
         <div class="my-6 relative">
             <hr class="text-[#E4E4E7]">
@@ -68,6 +69,10 @@
             </div>
         </div>
     </main>
+
+
+    <!-- js -->
+    <script src="js/login.js"></script>
 </body>
 
 </html>
