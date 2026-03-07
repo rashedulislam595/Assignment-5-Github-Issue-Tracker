@@ -15,19 +15,84 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
 
+    <!-- font awesome Cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
     <style>
         * {
             font-family: "Geist", sans-serif;
-            /* background-color: #f3f4f6; */
+
         }
     </style>
-
-
 </head>
 
-<body>
-    
+<body class="bg-base-200">
+    <header class="bg-[#FFFFFF] ">
+        <nav class="w-11/12 mx-auto ">
+            <div class="navbar felx justify-between items-center ">
+                <div class="flex items-center gap-1">
+                    <img class="w-[50px]" src="./assets/github-logo.png" alt="">
+                    <h2 class=" text-xl md:text-2xl text-[#1F2937] font-semibold">GitHub Issues Tracker</h2>
+                </div>
+                <div class="flex gap-4 items-center">
+                    <label class="input">
+                        <svg class="w-4 opacity-50 text-[#64748B]" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24">
+                            <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                                stroke="currentColor">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.3-4.3"></path>
+                            </g>
+                        </svg>
+                        <input type="search" required placeholder="Search issues..."
+                            class="text-[#64748B] text-[16px]" />
+                    </label>
+                    <button class="btn btn-primary font-semibold md:text-[16px]"><i class="fa-solid fa-plus"></i> New
+                        Issue</button>
+                </div>
+            </div>
+        </nav>
+        <hr class="text-[#e8e9e9] shadow-sm">
+    </header>
+
+    <main class="w-10/12 mx-auto">
+        <!-- tab section -->
+        <section>
+            <!-- tab container -->
+            <div class="flex gap-2 bg-[#FFFFFF] p-6 rounded-lg mt-[60px] mb-4 shadow-sm">
+                <button class="btn btn-primary font-semibold md:text-[16px] px-12">All</button>
+                <button class="btn text-[#64748B] bg-[#FFFFFF] font-medium md:text-[16px] px-9">Open</button>
+                <button class="btn text-[#64748B] bg-[#FFFFFF] font-medium md:text-[16px] px-8">Closed</button>
+            </div>
+            <!-- issue count & open,closed marker -->
+            <div class="flex justify-between items-center bg-[#FFFFFF] p-6 rounded-lg shadow-sm">
+                <!-- left  -->
+                <div class="flex gap-2 items-center">
+                    <div class=" w-12 p-2 bg-[#ECE4FF] rounded-full">
+                        <img src="./assets/Aperture.png" alt="">
+                    </div>
+                    <div>
+                        <h2 class="text-xl text-[#1F2937] font-semibold"><span id="issue-count">0</span> Issues</h2>
+                        <p class="text-[#64748B]">Track and manage your project issues</p>
+                    </div>
+                </div>
+                <!-- right -->
+                <div class="flex flex-row gap-4">
+                    <div class="flex flex-row items-center gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#00A96E]"></div>
+                        <p class="text-[#1F2937] font-medium">Open</p>
+                    </div>
+                    <div class="flex flex-row items-center gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#A855F7]"></div>
+                        <p class="text-[#1F2937] font-medium">Closed</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
