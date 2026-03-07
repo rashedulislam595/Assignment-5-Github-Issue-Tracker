@@ -20,7 +20,7 @@ document.getElementById("sign-in-btn").addEventListener("click",function(){
 
     // login condition
     if(username == "admin" && password == "admin123"){
-        window.location.assign("./mainPage.html");
+        window.location.assign("mainPage.html");
     }else{
         alert("Wrong username or password !! Try again");
     }
