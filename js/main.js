@@ -29,11 +29,10 @@ const displayIssue = (issues) =>{
         let year = issue.createdAt.slice(0,4);
         let date = issue.createdAt.slice(8,10);
         let month = issue.createdAt.slice(5,7);
-        
-        
-        
+       
+        console.log(issue.status)
         const issueCard = document.createElement("div");
-        issueCard.className = "p-4 rounded-sm shadow-xl";
+        issueCard.className = "p-4 rounded-lg shadow-xl";
 
         issueCard.innerHTML = `
                     <div class="flex justify-between items-center mb-3">
@@ -58,6 +57,11 @@ const displayIssue = (issues) =>{
                     </div>
         `
         issuesContainer.appendChild(issueCard)
+        if(issue.status == "open"){
+            issueCard.classList.add("border-t-4","border-[#00A96E]")
+        }else{
+            issueCard.classList.add("border-t-4","border-[#A855F7]")
+        }
     
     })
 }
