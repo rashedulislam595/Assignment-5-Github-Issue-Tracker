@@ -3,6 +3,7 @@ const issuesContainer = document.getElementById("issue-container");
 const issueCont = document.getElementById("issue-count");
 const loadingContainer = document.getElementById("loading-container");
 const modalContainer = document.getElementById("modal-container");
+const searchIssue = document.getElementById("search-btn")
 let openIssues = [];
 let closedIssues = [];
 
@@ -80,17 +81,17 @@ const displayIssue = (issues) => {
         issueCard.innerHTML = `
                     <div class="flex justify-between items-center mb-3">
                         <img src="./assets/Open-Status.png" alt="">
-                        <h3 class="text-sm font-medium text-[#EF4444] bg-[#FEECEC] py-2 px-8 rounded-full">${issue.priority}</h3>
+                        <h3  class="priority-text text-sm font-medium text-[#EF4444] bg-[#FEECEC] py-2 px-8 rounded-full">${issue.priority}</h3>
                     </div>
                     <h2 class="text-[#1F2937] text-lg font-bold mb-2">${issue.title}</h2>
                     <p class="text-[#64748B] line-clamp-2 mb-3">${issue.description}</p>
                     <!-- labels -->
-                    <div class="flex gap-1 mb-4">
+                    <div class="flex gap-1 mb-4 flex-wrap items-center">
                         <p
-                            class="text-sm font-medium text-[#EF4444] bg-[#FEECEC] py-2 px-4 rounded-full border border-[#FECACA]">
-                            <i class="fa-solid fa-bug"></i> ${issue.labels[0]}</p>
+                            class="text-sm font-medium text-[#EF4444] bg-[#FEECEC] py-2 px-4 rounded-full border border-[#FECACA]"><i class="fa-solid fa-bug"></i>
+                             ${issue.labels[0]}</p>
                         
-                        <p> ${issue.labels[1] ? `<p class=" text-sm font-medium text-[#D97706] bg-[#FFF8DB] py-2 px-5 rounded-full border border-[#FDE68A] "> <i class="fa-solid fa-life-ring"></i> ${issue.labels[1]} </p>` : ""}</p>
+                        <p> ${issue.labels[1] ? `<p class=" text-sm  font-medium text-[#D97706] bg-[#FFF8DB] py-2 px-5 rounded-full border border-[#FDE68A] "><i class="fa-solid fa-life-ring"></i> ${issue.labels[1]} </p>` : ""}</p>
                     </div>
 
                     <!-- author & createdAt -->
@@ -107,9 +108,10 @@ const displayIssue = (issues) => {
             issueCard.classList.add("border-t-4", "border-[#A855F7]");
             closedFilterIssues(issue, issue.id)
         }
-
+        
+        
     })
-    issueCont.innerText = issuesContainer.children.length;
+    issueCont.innerText = issuesContainer.children.length;  
     loading(false)
 }
 const displayModal = (issue) => {
@@ -165,6 +167,16 @@ const closedFilterIssues = (issues, id) => {
         closedIssues.push(issues)
     }
 }
+
+searchIssue.addEventListener("click",async()=>{
+    const searchInput = document.getElementById("search-input");
+    const search = searchInput.value.trim();
+    
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${search}`)
+    const data = await res.json();
+    displayIssue(data.data)
+})
+
 
 
 loadIssue();

@@ -32,13 +32,13 @@
 <body class="bg-base-200">
     <header class="bg-[#FFFFFF] ">
         <nav class="w-11/12 mx-auto ">
-            <div class="navbar felx justify-between items-center ">
+            <div class="navbar felx justify-between items-center  gap-3">
                 <div class="flex items-center gap-1">
-                    <img class="w-[50px]" src="./assets/github-logo.png" alt="">
-                    <h2 class=" text-xl md:text-2xl text-[#1F2937] font-semibold">GitHub Issues Tracker</h2>
+                    <img class=" w-[50px]" src="./assets/github-logo.png" alt="">
+                    <h2 class="hidden md:inline text-xl md:text-2xl text-[#1F2937] font-semibold ">GitHub Issues Tracker</h2>
                 </div>
-                <div class="flex gap-4 items-center">
-                    <label class="input">
+                <div class="flex gap-1 md:gap-4 items-center">
+                    <label class="input w-[70%] md:w-full">
                         <svg class="w-4 opacity-50 text-[#64748B]" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24">
                             <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
@@ -47,11 +47,10 @@
                                 <path d="m21 21-4.3-4.3"></path>
                             </g>
                         </svg>
-                        <input type="search" required placeholder="Search issues..."
+                        <input id="search-input" type="search" required placeholder="Search issues..."
                             class="text-[#64748B] text-[16px]" />
                     </label>
-                    <button class="btn btn-primary font-semibold md:text-[16px]"><i class="fa-solid fa-plus"></i> New
-                        Issue</button>
+                    <button id="search-btn" class="btn btn-primary font-semibold md:text-[16px]"><i class="fa-solid fa-plus"></i> New Issue</button>
                 </div>
             </div>
         </nav>
