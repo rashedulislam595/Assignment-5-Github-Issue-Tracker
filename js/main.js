@@ -80,7 +80,7 @@ const displayIssue = (issues) => {
 
         issueCard.innerHTML = `
                     <div class="flex justify-between items-center mb-3">
-                        <img src="./assets/Open-Status.png" alt="">
+                        ${issue.status == "open"?`<img src="./assets/Open-Status.png" alt="">` :`<img src="./assets/Closed- Status .png" alt="">`}
                         <h3  class="priority-text text-sm font-medium text-[#EF4444] bg-[#FEECEC] py-2 px-8 rounded-full">${issue.priority}</h3>
                     </div>
                     <h2 class="text-[#1F2937] text-lg font-bold mb-2">${issue.title}</h2>
@@ -88,10 +88,10 @@ const displayIssue = (issues) => {
                     <!-- labels -->
                     <div class="flex gap-1 mb-4 flex-wrap items-center">
                         <p
-                            class="text-sm font-medium text-[#EF4444] bg-[#FEECEC] py-2 px-4 rounded-full border border-[#FECACA]"><i class="fa-solid fa-bug"></i>
+                            class="text-[12px] font-medium text-[#EF4444] bg-[#FEECEC] py-1.5 px-2 rounded-full border border-[#FECACA]"><i class="fa-solid fa-bug"></i>
                              ${issue.labels[0]}</p>
                         
-                        <p> ${issue.labels[1] ? `<p class=" text-sm  font-medium text-[#D97706] bg-[#FFF8DB] py-2 px-5 rounded-full border border-[#FDE68A] "><i class="fa-solid fa-life-ring"></i> ${issue.labels[1]} </p>` : ""}</p>
+                        <p> ${issue.labels[1] ? `<p class=" text-[12px]  font-medium text-[#D97706] bg-[#FFF8DB] py-1.5 px-2 rounded-full border border-[#FDE68A] "><i class="fa-solid fa-life-ring"></i> ${issue.labels[1]} </p>` : ""}</p>
                     </div>
 
                     <!-- author & createdAt -->
