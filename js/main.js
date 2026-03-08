@@ -175,6 +175,7 @@ searchIssue.addEventListener("click",async()=>{
     const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${search}`)
     const data = await res.json();
     displayIssue(data.data)
+    searchInput.value = "";
 })
 
 
