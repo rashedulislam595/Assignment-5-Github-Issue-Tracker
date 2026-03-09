@@ -1,4 +1,27 @@
 
+const createElementByArray = (array) => {
+
+    const color = {
+        bug: " text-[#EF4444] bg-[#FEECEC] border-[#FECACA]",
+        enhancement: "text-[#00A96E] bg-[#DEFCE8] border-[#BBF7D0]",
+        "help wanted": "text-[#D97706] bg-[#FFF8DB] border-[#FDE68A]",
+        "good first issue": "text-[#6f27fb] bg-[#6f27fb20] border-[#6f27fb30]",
+        "documentation": "text-[#f107d2] bg-[#f7aeed] border-[#f107d240]"
+    }
+
+    const htmlElement = array.map(item => {
+        const label = item;
+        const labelClass = color[label]
+
+        return `<p class="${labelClass} text-[12px] font-medium py-1.5 px-2 rounded-full border ><i class="fa-solid fa-bug"></i> ${item.toUpperCase()}</p>`
+
+    })
+    return htmlElement.join(" ")
+
+
+
+}
+
 const issuesContainer = document.getElementById("issue-container");
 const issueCont = document.getElementById("issue-count");
 const loadingContainer = document.getElementById("loading-container");
@@ -74,24 +97,31 @@ const displayIssue = (issues) => {
         let date = issue.createdAt.slice(8, 10);
         let month = issue.createdAt.slice(5, 7);
 
+        // checking the property to apply different color
+        let priority = "text-[#EF4444] bg-[#FEECEC]";
+
+        if (issue.priority == "high") {
+            priority = "text-[#EF4444] bg-[#FEECEC]";
+        } else if (issue.priority == "medium") {
+            priority = "text-[#D97706] bg-[#FFF8DB] ";
+        } else {
+            priority = "text-[#9CA3AF] bg-[#EEEFF2]"
+        }
+
         const issueCard = document.createElement("div");
         issueCard.className = "p-4 rounded-lg shadow-xl";
         issueCard.onclick = () => loadIssueModal(issue.id);
 
         issueCard.innerHTML = `
                     <div class="flex justify-between items-center mb-3">
-                        ${issue.status == "open"?`<img src="./assets/Open-Status.png" alt="">` :`<img src="./assets/Closed- Status .png" alt="">`}
-                        <h3  class="priority-text text-sm font-medium text-[#EF4444] bg-[#FEECEC] py-2 px-8 rounded-full">${issue.priority}</h3>
+                        ${issue.status == "open" ? `<img src="./assets/Open-Status.png" alt="">` : `<img src="./assets/Closed- Status .png" alt="">`}
+                        <h3  class="${priority} priority-text text-sm font-medium  py-2 px-8 rounded-full">${issue.priority.toUpperCase()}</h3>
                     </div>
                     <h2 class="text-[#1F2937] text-lg font-bold mb-2">${issue.title}</h2>
                     <p class="text-[#64748B] line-clamp-2 mb-3">${issue.description}</p>
                     <!-- labels -->
                     <div class="flex gap-1 mb-4 flex-wrap items-center">
-                        <p
-                            class="text-[12px] font-medium text-[#EF4444] bg-[#FEECEC] py-1.5 px-2 rounded-full border border-[#FECACA]"><i class="fa-solid fa-bug"></i>
-                             ${issue.labels[0]}</p>
-                        
-                        <p> ${issue.labels[1] ? `<p class=" text-[12px]  font-medium text-[#D97706] bg-[#FFF8DB] py-1.5 px-2 rounded-full border border-[#FDE68A] "><i class="fa-solid fa-life-ring"></i> ${issue.labels[1]} </p>` : ""}</p>
+                    ${createElementByArray(issue.labels)}
                     </div>
 
                     <!-- author & createdAt -->
@@ -108,28 +138,35 @@ const displayIssue = (issues) => {
             issueCard.classList.add("border-t-4", "border-[#A855F7]");
             closedFilterIssues(issue, issue.id)
         }
-        
-        
+
+
     })
-    issueCont.innerText = issuesContainer.children.length;  
+    issueCont.innerText = issuesContainer.children.length;
     loading(false)
 }
 const displayModal = (issue) => {
     let year = issue.createdAt.slice(0, 4);
     let date = issue.createdAt.slice(8, 10);
     let month = issue.createdAt.slice(5, 7);
-    
+
+    // checking the property to apply different color
+    let priority = "text-[#EF4444] bg-[#FEECEC]";
+
+    if (issue.priority == "high") {
+        priority = "text-[#EF4444] bg-[#FEECEC]";
+    } else if (issue.priority == "medium") {
+        priority = "text-[#D97706] bg-[#FFF8DB] ";
+    } else {
+        priority = "text-[#9CA3AF] bg-[#EEEFF2]"
+    }
+
     modalContainer.innerHTML = `
         <dialog id="issue_modal" class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
                     <h3 class="text-2xl font-bold mb-3">${issue.title}</h3>
                     <p>${issue.status == "open" ? `<p class="text-[#64748B] text-sm"><span class="font-medium py-1.5 px-3 rounded-full bg-[#00A96E] text-[#FFFFFF]">Opened</span> • Opened by <span>${issue.author}</span> • <span>${date}/${month}/${year}</span></p>` : `<p class="text-[#64748B] text-sm"><span class="font-medium py-1.5 px-3 rounded-full bg-[#EF4444] text-[#FFFFFF]">Closed</span> • Closed by <span>${issue.author}</span> • <span>${date}/${month}/${year}</span></p>`} </p>
                     <div class="flex gap-1 my-6 ">
-                        <p
-                            class="text-sm font-medium text-[#EF4444] bg-[#FEECEC] py-2 px-4 rounded-full border border-[#FECACA]">
-                            <i class="fa-solid fa-bug"></i> ${issue.labels[0]}</p>
-                        
-                        <p>${issue.labels[1]?`<p class=" text-sm font-medium text-[#D97706] bg-[#FFF8DB] py-2 px-5 rounded-full border border-[#FDE68A] "> <i class="fa-solid fa-life-ring"></i> ${issue.labels[1]}</p>`: ""}</p>
+                        ${createElementByArray(issue.labels)}
                     </div>
                     <p class="pb-4 text-[#64748B]">Press ESC key or click the button below to close</p>
                     <div class="p-4 grid grid-cols-2 items-center gap-2.5">
@@ -139,7 +176,7 @@ const displayModal = (issue) => {
                        </div> 
                        <div class="left">
                         <p class="text-[#64748B]">Priority:</p>
-                        <button class="btn bg-[#EF4444] text-white rounded-full">${issue.priority}</button>
+                        <button class="btn ${priority} rounded-full">${issue.priority.toUpperCase()}</button>
                        </div> 
                     </div>
                     <div class="modal-action">
@@ -168,10 +205,10 @@ const closedFilterIssues = (issues, id) => {
     }
 }
 
-searchIssue.addEventListener("click",async()=>{
+searchIssue.addEventListener("click", async () => {
     const searchInput = document.getElementById("search-input");
     const search = searchInput.value.trim();
-    
+
     const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${search}`)
     const data = await res.json();
     displayIssue(data.data)
