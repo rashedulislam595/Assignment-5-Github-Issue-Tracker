@@ -172,7 +172,7 @@ const displayModal = (issue) => {
                     <div class="p-4 grid grid-cols-2 items-center gap-2.5">
                        <div class="right">
                         <p class="text-[#64748B]">Assignee:</p>
-                        <h2 class="text-[#1F2937] font-semibold">${issue.author}</h2>
+                        <h2 class="text-[#1F2937] font-semibold">${issue.assignee?issue.assignee:"Unassigned"}</h2>
                        </div> 
                        <div class="left">
                         <p class="text-[#64748B]">Priority:</p>
