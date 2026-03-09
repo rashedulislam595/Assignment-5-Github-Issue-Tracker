@@ -6,7 +6,7 @@ const createElementByArray = (array) => {
         enhancement: "text-[#00A96E] bg-[#DEFCE8] border-[#BBF7D0]",
         "help wanted": "text-[#D97706] bg-[#FFF8DB] border-[#FDE68A]",
         "good first issue": "text-[#6f27fb] bg-[#6f27fb20] border-[#6f27fb30]",
-        "documentation": "text-[#f107d2] bg-[#f7aeed] border-[#f107d240]"
+        "documentation": "text-[#f107d2] bg-[#f7aeed50] border-[#f107d220]"
     }
 
     const htmlElement = array.map(item => {
