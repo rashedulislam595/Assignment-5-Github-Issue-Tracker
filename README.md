@@ -3,7 +3,9 @@
 A sleek, responsive web application that lets you **create, view, and manage project issues** — inspired by GitHub's native issue tracking interface. Built as Assignment 5, this app provides a clean dashboard to track open and closed issues with a smooth user experience.
 
 ---
-
+![alt text](image.png)
+![alt text](image-1.png)
+---
 ## 🌐 Live Demo
 
 🔗 **Live Site:** [https://assignment-5-github-issue-tracker.netlify.app/](https://assignment-5-github-issue-tracker.netlify.app/)
