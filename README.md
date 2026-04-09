@@ -1,84 +1,73 @@
-1.  What is the difference between var, let, and const?
+# 🐛 GitHub Issue Tracker
 
-Ans: Below is the difference between var, let, and const--
-    ** var : 
-    (i) var is the older way to declare variables.
-    (ii) It can be redeclared and updated.
-    (iii) Sometimes it causes unexpected behavior because it ignores block scope (if, for, etc.).
+A sleek, responsive web application that lets you **create, view, and manage project issues** — inspired by GitHub's native issue tracking interface. Built as Assignment 5, this app provides a clean dashboard to track open and closed issues with a smooth user experience.
 
-    for example--> var name = "Rahim";
+---
 
-    ** let : 
-    (i) let is a modern variable declaration introduced in ES6.
-    (ii) It is block-scoped, meaning it only exists inside the {} block where it is defined.
-    (iii) It can be updated, but cannot be redeclared in the same scope.
+## 🌐 Live Demo
 
-    for example--> let age = 20;
-                    age = 21; // allowed
-                    <!-- let age = 22; // not allowed in same scope -->
+🔗 **Live Site:** [https://assignment-5-github-issue-tracker.netlify.app/](https://assignment-5-github-issue-tracker.netlify.app/)
 
-    ** const : 
-    (i) const is also block-scoped.
-    (ii) It cannot be updated or redeclared after declaration.
-    (iii) It must be assigned a value when created.
+---
 
-    for example--> const city = "Rangpur";
-                    <!-- city  = "Dhaka"; // not allowed -->
+## 📖 Overview
 
-2. What is the spread operator (...)?
+GitHub Issue Tracker is a front-end single-page application (SPA) that mimics core GitHub issue management features. Users can log in, create new issues, and filter them by status (All, Open, or Closed). The app is designed with a clean, GitHub-inspired UI and is fully deployed on Netlify.
 
-Ans: The spread operator allows us to expand elements from arrays or objects. That is, it spreads the elements. It is commonly used to copy, merge, or pass multiple values easily.
+---
 
-    *Example with Array:
-    const numbers = [1, 2, 3];
-    const newNumbers = [...numbers, 4, 5];
+## 🛠️ Main Technology
 
-    *Example with Object:
-    const user = { name: "Rahim", age: 20 };
-    const updatedUser = {
-        ...user,
-        city: "Dhaka"
-    } ;
+| Technology | Purpose |
+|---|---|
+| **JavaScript (ES6+)** | Application logic |
+| **CSS / Tailwind CSS** | Styling and responsive design |
+| **Netlify** | Hosting and continuous deployment |
 
+---
 
-3. What is the difference between map(), filter(), and forEach()?
+## ✨ Main Features
 
-Ans : Below is the difference between map(), filter(), and forEach()--
+- 🔐 **User Authentication** — Login page with credential validation before accessing the tracker
+- 📋 **Issue Dashboard** — View all issues in a clean, organized list
+- 🔎 **Filter by Status** — Quickly switch between **All**, **Open**, and **Closed** issue views
+- 📊 **Issue Count Display** — Real-time count of total, open, and closed issues
+- 📱 **Responsive Design** — Works seamlessly on desktop and mobile devices
 
-** map() : 
-    (i) Creates a new array by transforming each element.
-    
-    for example-->  const numbers = [1, 2, 3];
-                    const doubled = numbers.map(num => num * 2);
+---
 
-** filter() : 
-    (i) Creates a new array with elements that pass a condition.
-    
-    for example-->  const numbers = [1, 2, 3, 4];
-                    const even = numbers.filter(num => num % 2 === 0);
+## 📁 Project Structure
 
-** forEach() : 
-    (i) Loops through an array but does not return a new array.
-    (ii) Usually used for actions like printing or updating values.
-    
-    for example-->  const numbers = [1, 2, 3];
-                    numbers.forEach(num => {
-                        console.log(num);
-                    });
+```
+Assignment-4-Job-Tracker/
+├── index.html       # Main HTML file
+├── style.css        # Stylesheet
+└── script.js        # JavaScript logic
+```
+---
 
-4. What is an arrow function?
+## 🔑 Demo Credentials
 
-Ans : An arrow function is a shorter way to write functions in JavaScript. It was introduced in ES6.This allows you to write functions in a very short time.Arrow functions make code shorter and easier to read.
+Use the following credentials to log in:
 
-for Example -> const add = (x, y) => x + y;
+| Field | Value |
+|---|---|
+| **Username** | `admin` |
+| **Password** | `admin123` |
 
+---
 
-5. What are template literals?
+## 🔗 Relevant Links
 
-Ans : Template literals are a way to write strings in JavaScript using backticks ( ` ` ) instead of single (' ') or double (" ") quotes.
-They make it easy to add variables inside a string. They also allow multi-line strings.
+| Resource | Link |
+|---|---|
+| 🌐 Live Site | [assignment-5-github-issue-tracker.netlify.app](https://assignment-5-github-issue-tracker.netlify.app/) |
+| 💻 GitHub Repository | [Github-Repository](https://github.com/rashedulislam595/Assignment-5-Github-Issue-Tracker) |
+| 🚀 Netlify Dashboard | [Netlify](https://assignment-5-github-issue-tracker.netlify.app/) |
 
-For Example --> const name = "Rahim";
-                const age = 20;
+---
 
-                const message = `My name is ${name} and I am ${age} years old.`;
+## 👤 Author
+
+**Rashedul Islam**
+- GitHub: [@rashedulislam595](https://github.com/rashedulislam595)
